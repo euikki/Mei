@@ -1,0 +1,48 @@
+{
+    "dimensions": {
+      "candy": {},
+      
+      "mushroom":{
+        
+        "lemon_boy": {
+            "vida": 20,
+            "dano": 5,
+            "defesa": 2,
+            "spawn": 0.1,
+            "drop": [
+              {"item": "cogumelo", "chance_d": 0.2}
+            ]
+          }
+
+      },
+      
+      "floresta_dimensional": {
+               
+        "fada": {
+          "vida": 20,
+          "dano": 5,
+          "defesa": 2,
+          "spawn": 0.1,
+          "drop": [
+            {"item": "fairy_dust", "chance_d": 0.5},
+            {"item": "fairy_wing", "chance_d": 0.3},
+            {"item": "magic_flower", "chance_d": 0.2}
+          ]
+        },
+        "mystic_wolf": {
+          "vida": 25,
+          "dano": 7,
+          "defesa": 5,
+          "spawn": 0.15,
+          "drop": [
+            {"item": "mystic_wolf_skin", "chance_d": 0.6},
+            {"item": "mystic_fur", "chance_d": 0.4}
+          ]
+        }
+        
+
+
+      }
+    }
+  }
+  
