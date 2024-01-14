@@ -5,7 +5,6 @@ const User = new Schema({
     blacklist: { impostor: String,  reason: String, },
     insignia: { type: String, default: "" },
     caixas: { type: Number, default: 1 },
-
     //-------- Perfil -------------------------
 
 rep: { type: Number, default: 0 },

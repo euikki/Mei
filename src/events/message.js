@@ -42,14 +42,11 @@ module["exports"] = {
           return; }
 
 
-    
-        let status = require("../functions/Manutention");
-            
-        if (status.get() && !client.divos.includes(message.author.id)) {
-              return message.channel.send('**(`☕`) -** Estou em **manutenção**, por favor volte mais tarde!');
-            }
+          if (!client.divos.includes(message.author.id)) return message.channel.send('**(`☕`) -** Estou em **manutenção**, por favor volte mais tarde!')
         
-        const mentions = message.mentions.users;
+        
+        
+          const mentions = message.mentions.users;
         const userCache = client.users.cache;
         const mentioned = userCache.get(args[0]) || userCache.find(user => user.username === args[0]) || mentions.first();
 
