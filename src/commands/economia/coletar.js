@@ -11,7 +11,7 @@ module.exports = {
     
     const user = await User.findOne({ _id: message.author.id });
     const { vip, daily_tempo } = user;
-    const BloodMoon = [0, 2, 6].includes(moment().tz('America/Sao_Paulo').day());
+    const BloodMoon = [0, 5].includes(moment().tz('America/Sao_Paulo').day());
 
     if (daily_tempo && (Date.now() - daily_tempo < (vip ? 43200000 : 86400000))) {
       return message.reply({ content: client.FormatEmoji(`{e:lua} \`${message.author.username}\` você só poderá sair para **coletar** novamente **<t:${Math.floor((Date.now() + (vip ? 43200000 : 86400000) - daily_tempo) / 1000)}:R>**.`) });
@@ -33,7 +33,7 @@ module.exports = {
 
     message.reply({ content: client.FormatEmoji(replyMessage) });
 
-    //user.daily_tempo = Date.now();
+    user.daily_tempo = Date.now();
     await user.save();
   }
 };
