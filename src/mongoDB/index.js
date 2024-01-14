@@ -9,7 +9,7 @@ mongoose.connect(process.env.database)
         console.log(`${'Database'.cyan.bold} carregada com sucesso!`);
     })
     .catch((error) => {
-        console.error('Um erro ocorreu ao se conectar com o banco de dados:', error);
+        console.error('Ocorreu um erro durante a conexão com o banco de dados:', error);
     });
 
 module.exports = {
