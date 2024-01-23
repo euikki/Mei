@@ -8,7 +8,7 @@ module.exports = {
   
     run: async (client, message, args) => {
       let user;
-      let isAuthor = false;
+      let author = false;
   
       if (message.mentions.users.first()) {
         user = await User.findOne({ _id: message.mentions.users.first().id });
@@ -16,14 +16,13 @@ module.exports = {
       } else {
         user = await User.findOne({ _id: message.author.id });
         username = message.author.username;
-        isAuthor = true;
+        author = true;
       }
-      
-  // Bota fogo
+
       const fragmentos = user.bolso;
       const cogumelos = user.cave;
   
-      const Mbolso = isAuthor ? `> - Você possui **({dailyf}) ${fragmentos.toLocaleString()} Fragmentos** e **({dailyc}) ${cogumelos.toLocaleString()} Cogumelos** em seu bolso.` : `> - ${message.author}, O viajante **\`${username}\`** possui uma quantia de **({dailyf}) ${fragmentos.toLocaleString()} Fragmentos** e **({dailyc}) ${cogumelos.toLocaleString()} Cogumelos** em seu bolso.`;
+      const Mbolso = author ? `> - Você possui **({dailyf}) ${fragmentos.toLocaleString()} Fragmentos** e **({dailyc}) ${cogumelos.toLocaleString()} Cogumelos** em seu bolso.` : `> - ${message.author}, O viajante **\`${username}\`** possui uma quantia de **({dailyf}) ${fragmentos.toLocaleString()} Fragmentos** e **({dailyc}) ${cogumelos.toLocaleString()} Cogumelos** em seu bolso.`;
       return message.reply({ content: client.FormatEmoji(Mbolso)});
     }
   };

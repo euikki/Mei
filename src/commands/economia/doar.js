@@ -22,8 +22,8 @@ module.exports = {
       new Discord.ButtonBuilder().setCustomId("aceitar").setStyle(Discord.ButtonStyle.Success).setEmoji(client.FormatEmoji("{correto}"))
     );
 
-    const menage = await message.reply({ content: client.FormatEmoji(`> - ${viajante.user}, **${message.author.username}** está fazendo a boa e lhe doando **({dailyf}) ${fragmentos.toLocaleString()} fragmentos**, aperte no botão abaixo para concluir a doação.`), components: [button] });
-    const coletor = menage.createMessageComponentCollector({ filter: i => i.customId === 'aceitar', time: 15000 });
+    const MessagePay = await message.reply({ content: client.FormatEmoji(`> - ${viajante.user}, **${message.author.username}** está fazendo a boa e lhe doando **({dailyf}) ${fragmentos.toLocaleString()} fragmentos**, aperte no botão abaixo para concluir a doação.`), components: [button] });
+    const coletor = MessagePay.createMessageComponentCollector({ filter: i => i.customId === 'aceitar', time: 15000 });
 
     coletor.on('collect', async i => {
       if (i.customId === 'aceitar') {
@@ -45,7 +45,7 @@ module.exports = {
 
     coletor.on('end', collected => {
       if (collected.size === 0) {
-        menage.delete();
+        MessagePay.delete();
       }
     });
   }

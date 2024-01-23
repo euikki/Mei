@@ -42,7 +42,7 @@ module["exports"] = {
           return; }
 
 
-          if (!client.divos.includes(message.author.id)) return message.channel.send('**(`☕`) -** Estou em **manutenção**, por favor volte mais tarde!')
+       //   if (!client.divos.includes(message.author.id)) return message.channel.send('**(`☕`) -** Estou em **manutenção**, por favor volte mais tarde!')
         
         
         
