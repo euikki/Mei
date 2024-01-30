@@ -4,7 +4,7 @@ const fs = require("fs");
 const colors = require("colors");
 const { FormatEmoji } = require("../functions/index");
 
-module["exports"] = class Daijin extends Client {
+module["exports"] = class Meimi extends Client {
   constructor(options) {
     super({
       intents: options.intents,
