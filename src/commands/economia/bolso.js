@@ -5,6 +5,7 @@ module.exports = {
     name: "bolso",
     aliases: ["atm"],
     description: "🌌 Veja o seu bolso ou o de um viajante.",
+    category: "economy",
   
     run: async (client, message, args) => {
       let user;

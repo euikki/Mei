@@ -6,11 +6,9 @@ module.exports = {
     name: 'eval',
     aliases: ["e", "ev"],
     restrito: true,
-    infos: {
-        description: "Executar códigos",
-        category: "desenvolvedor",
-        usage: "eval"
-    },
+    description: "Executar códigos",
+    category: "developers",
+
     run: async (client, message, args) => {
         try {
             const code = args.join(" ");

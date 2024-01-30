@@ -6,6 +6,7 @@ module.exports = {
   name: "coletar",
   aliases: ["daily"],
   description: "🌌 Colete seus fragmentos e cogumelos diários.",
+  category: "economy",
 
   run: async (client, message, args) => {
     
@@ -15,9 +16,9 @@ module.exports = {
    
     
     if (daily_tempo && (Date.now() - daily_tempo < (vip ? 43200000 : 86400000))) {  
-      const tempo = Math.floor((daily_tempo + (vip ? 43200000 : 86400000) - Date.now()) / 1000);
-      const horas = Math.floor(tempo / 3600);
-      const minutos = Math.floor((tempo % 3600) / 60);
+      const time = Math.floor((daily_tempo + (vip ? 43200000 : 86400000) - Date.now()) / 1000);
+      const horas = Math.floor(time / 3600);
+      const minutos = Math.floor((time % 3600) / 60);
       
       return message.reply({ content: client.FormatEmoji(`{e:lua} \`${message.author.username}\` você só poderá sair para **coletar** novamente em **${horas} horas e ${minutos} minutos**.`) });
     }
@@ -28,7 +29,7 @@ module.exports = {
     const collect = Math.ceil(Math.random() * (BloodMoon ? 1200 : (vip ? 4300 : 2300)));
     user[BloodMoon ? 'cave' : 'bolso'] += collect;
 
-    let AlternativeMessage = `> - {e:star} ${message.author} ${BloodMoon ? "Hoje é dia de **lua de sangue**, em sua coleta você obteve" : "Você fez a sua coleta e conseguiu"} **(${emoji}) ${coleta.toLocaleString()} ${item}!!**`;
+    let AlternativeMessage = `> - {e:star} ${message.author} ${BloodMoon ? "Hoje é dia de **lua de sangue**, em sua coleta você obteve" : "Você fez a sua coleta e conseguiu"} **(${emoji}) ${collect.toLocaleString()} ${item}!!**`;
 
     if (vip) {
       const Mushroom = Math.ceil(Math.random() * 1200);

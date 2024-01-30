@@ -8,6 +8,7 @@ module.exports = {
   name: 'perfil',
   aliases: ["profile", "p"],
   description: 'ain bolsonaro',
+  category: "members",
   run: async (client, message, args) => {
 
     const canvas = Canvas.createCanvas(900, 1157);

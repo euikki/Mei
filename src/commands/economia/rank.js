@@ -5,6 +5,7 @@ module.exports = {
     name: "rank",
     aliases: ["rf", "top"],
     description: "🌌 Ver os viajantes com mais fragments",
+    category: "economy",
 
     run: async (client, message, args) => {
         const fragments = await User.find({ bolso: { $gt: 0 } }).sort({ bolso: -1 }).limit(10);

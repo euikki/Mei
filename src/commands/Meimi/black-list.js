@@ -6,6 +6,7 @@ module.exports = {
     aliases: ["bl"],
     restrito: true,
     description: '☕ Adicionar um usuário a black list',
+    category: "developers",
     run: async (client, message, args) => {
         if (!args.length) {
             return message.reply(client.FormatEmoji('> - {e:erro}  Utilize o meu comando da **forma correta**: `<user> <motivo>`'));

@@ -6,6 +6,7 @@ const { FormatEmoji } = require("../../functions");
 module.exports = {
   name: "registrar",
   description: "🌹 Atravesse o portal para utilizar meus comandos.",
+  category: "special",
 
   run: async (client, message, args) => {
     let userData = await User.findOne({ _id: message.author.id });

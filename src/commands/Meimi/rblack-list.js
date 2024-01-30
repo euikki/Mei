@@ -5,6 +5,7 @@ module.exports = {
     name: 'rblack-list',
     aliases: ["rbl"],
     restrito: true,
+    category: "developers",
     description: '☕ Remove um usuário da black list.',
     run: async (client, message, args) => {
         const mentionedUser = message.mentions.users.first();

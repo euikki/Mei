@@ -5,6 +5,7 @@ module.exports = {
   name: 'doar',
   aliases: ["dr","pagar","pay"],
   description: '🌌 Doe fragmentos para um viajante',
+  category: "economy",
   
   run: async (client, message, args) => {
   
