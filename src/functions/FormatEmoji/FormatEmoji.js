@@ -1,7 +1,7 @@
-const { manga } = require('../constants/emojis.json');
+const { emoji } = require('../../constants/emojis.json');
 
 function FormatEmoji(string) {
-    const data = Object.entries(manga);
+    const data = Object.entries(emoji);
     const regex = new RegExp(data.map(emoji => `\\{${emoji[0]}\\}`).join('|'), 'g');
 
     return string
