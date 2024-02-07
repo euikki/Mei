@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const MESSAGE = require('../constants/message.json');
 const { Perms } = require('../constants/perms.json');
 
-const { FormatEmoji } = require('../functions');
+const { FormatEmoji } = require('../functions/FormatEmoji');
 const { userDB } = require('../mongoDB/index');
 module["exports"] = {
     type: 'messageCreate',
