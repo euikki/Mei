@@ -2,7 +2,7 @@ const { Client, Collection } = require("discord.js");
 const Table = require("cli-table3");
 const fs = require("fs");
 const colors = require("colors");
-const { FormatEmoji } = require("../functions/index");
+const { FormatEmoji } = require("../functions/FormatEmoji/index");
 
 module["exports"] = class Meimi extends Client {
   constructor(options) {
