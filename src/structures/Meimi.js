@@ -16,7 +16,7 @@ module["exports"] = class Meimi extends Client {
     this.FormatEmoji = FormatEmoji
 
     this.commands = new Collection();
-    
+    this.components = new Collection();
     this.cooldowns = new Collection();
   }
 
@@ -24,7 +24,8 @@ module["exports"] = class Meimi extends Client {
     try {
       this.#HandlerCommands();
       this.#HandlerEvents();
-
+      this.#HandlerComponents();
+          
       await super.login(this.token);
       console.log(
         `${this.user.username.magenta.bold} foi conectada com sucesso.`
@@ -75,5 +76,27 @@ module["exports"] = class Meimi extends Client {
     });
 
     console.log(table.toString());
+  }
+
+  #HandlerComponents() {
+    const table = new Table({ head: [colors.cyan('componentes'), colors.blue('status')] });
+
+    fs.readdirSync('./src/components').forEach(directory => {
+        const componentFile = fs.readdirSync(`./src/components/${directory}/`).filter(cmpFile => cmpFile.endsWith(".js"));
+
+        componentFile.forEach(file => {
+            const components = require(`../components/${directory}/${file}`);
+            if (!components) return;
+
+            if (!components || !Array.isArray(components)) return;
+
+            components.forEach(component => {
+            this.components.set(component.id, component);
+            table.push([component.id.white, 'sucesso'.white])
+            });
+        });
+    });
+
+    console.log(table.toString())
   }
 };
