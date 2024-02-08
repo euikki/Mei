@@ -29,4 +29,4 @@ daily_tempo: { type: Number, default: 0 },
 
 });
 
-module["exports"] = model('Viajantes', User);
+module["exports"] = model('Usuários', User);
