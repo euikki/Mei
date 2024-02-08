@@ -11,7 +11,7 @@ module["exports"] = class Meimi extends Client {
     });
 
     this.prefix = options.prefix;
-    this.divos = options.divos
+    this.developers = options.developers
     this.token = options.token;
     this.FormatEmoji = FormatEmoji
 
