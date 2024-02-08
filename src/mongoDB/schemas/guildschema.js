@@ -4,4 +4,4 @@ const Server = new Schema({
     _id: { type: String, required: true }
 });
 
-module["exports"] = model('Dimensões', Server);
+module["exports"] = model('Servidores', Server);
