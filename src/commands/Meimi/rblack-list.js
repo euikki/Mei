@@ -4,7 +4,7 @@ const userDB = require('../../mongoDB/schemas/userschema');
 module.exports = {
     name: 'rblack-list',
     aliases: ["rbl"],
-    restrito: true,
+    DevOnly: true,
     category: "developers",
     description: '☕ Remove um usuário da black list.',
     run: async (client, message, args) => {

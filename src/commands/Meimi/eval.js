@@ -5,7 +5,7 @@ const { exec } = require('child_process');
 module.exports = {
     name: 'eval',
     aliases: ["e", "ev"],
-    restrito: true,
+    DevOnly: true,
     description: "Executar códigos",
     category: "developers",
 

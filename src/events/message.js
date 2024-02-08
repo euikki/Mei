@@ -37,7 +37,7 @@ module["exports"] = {
        const command = client.commands.get(cmdName) || client.commands.find(als => als.aliases?.includes(cmdName));
        
        if (!command){ message.channel.send(client.FormatEmoji(`{e:erro} ${message.author}, ** Esse comando não foi encontrado na minha lista de comandos, verifique se a ortografia está correta.**`)); return;};
-       if (command.restrito && !client.divos.includes(message.author.id)) {
+       if (command.DevOnly && !client.divos.includes(message.author.id)) {
           message.reply(client.FormatEmoji(`{e:erro} Apenas meu **desenvolvedor** e **pessoas autorizadas** podem utilizar esse comando.`));
           return; }
 
