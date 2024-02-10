@@ -11,7 +11,7 @@ module.exports = {
         const fragments = await User.find({ bolso: { $gt: 0 } }).sort({ bolso: -1 }).limit(10);
 
         if (fragments.length === 0) {
-            return message.channel.send(`\`🥀\` - Parece que não tem ninguém no ranking\n > - mude isso usando **${client.prefix}coletar**`);
+            return message.channel.send(`\`🥀\` - Parece que não tem ninguém no ranking...\n> - mude isso usando **\`${client.prefix}coletar\`**`);
         }
 
         const finish = [];
