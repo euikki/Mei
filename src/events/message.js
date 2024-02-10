@@ -123,6 +123,31 @@ const TranslatePerms = (input) => {
             command.run(client, message, args);
         } catch (error) {
             console.error('Erro ao executar o comando:', error);
-        }            
+        }    
+        
+        
+        const prefix = client.prefix;
+        if (message.content.startsWith(prefix)) {
+            let command = message.content.slice(prefix.length).trim().split(/ +/g).shift().toLowerCase();
+        
+            const commandObject = client.commands.get(command) || client.commands.find(cmd => cmd.aliases?.includes(command));
+            if (commandObject) {
+                command = commandObject.name;
+            }
+        
+            const { name: serverName, memberCount } = message.guild;
+            const guild = message.guild;
+            const owner = await guild.fetchOwner();
+            const ownerUsername = owner.user.username;
+            
+            const logChannel = client.channels.cache.get('1205971779558834176');
+        
+            const embed = new Discord.EmbedBuilder()
+                .setAuthor({name: message.author.username, iconURL: message.author.avatarURL({ format: 'png', dynamic: true, size: 2048 })})
+                .setDescription(`\n> - **\`🔮\` › Dimensão:** \`${serverName}\`\n> - **\`🐉\` › Dono:** \`${ownerUsername}\`\n> - **\`⭐\` › Aventureiros:** \`${memberCount}\``)
+                .setColor('#97989a');
+            
+            await logChannel.send({content:`Comando usado: **\`${command}\`**`, embeds: [embed]});
+        }        
     }
 }
