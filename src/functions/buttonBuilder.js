@@ -1,18 +1,33 @@
 const Discord = require('discord.js');
 
-function MButton({ label, customId, style, url, emoji }) {
-  const button = new Discord.ButtonBuilder()
-    .setLabel(label)
-    .setStyle(style)
-    .setEmoji(emoji);
+function MButton(buttons) {
+  const row = new Discord.ActionRowBuilder();
+
+  for (const { label, customId, style, url, emoji } of buttons) {
+    const button = new Discord.ButtonBuilder()
+      .setLabel(label)
+      .setStyle(style);
+
+      /* Valores que podem ser passado para o Style
+      Primary || 1
+      Secondary || 2
+      Success || 3
+      Danger || 4
+      Link || 5 */
+
+  if (emoji) {
+   button.setEmoji(emoji);
+}
 
   if (url) {
-    button.setURL(url);
-  } else {
-    button.setCustomId(customId);
-  }
+   button.setURL(url);
+} else {
+   button.setCustomId(customId);
+}
 
-  return new Discord.ActionRowBuilder().addComponents(button);
+    row.addComponents(button);
+  }
+  return row;
 }
 
 module.exports = MButton;
