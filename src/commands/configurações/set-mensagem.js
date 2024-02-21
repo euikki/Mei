@@ -14,23 +14,24 @@ module.exports = {
         }
 
         const buttons = MButton([
-            { label: 'Título', customId: `[title, ${message.author.id}]`, style: 'Secondary' },
-            { label: 'Descrição', customId: `[description, ${message.author.id}]`, style: 'Secondary' },
-            { label: 'Thumbnail', customId: `[thumbnail, ${message.author.id}]`, style: 'Secondary' },
-            { label: 'Imagem', customId: `[image, ${message.author.id}]`, style: 'Secondary' },
-            { label: 'Cor', customId: `[color, ${message.author.id}]`, style: 'Secondary' }
+            { label: 'Editar conteúdo Principal', customId: `[open-primary, ${message.author.id}]`, style: 'Secondary' },
+            { label: 'Editar conteúdo Adcional', customId: `[open-secondary, ${message.author.id}]`, style: 'Secondary' }
           ]);          
 
 
         const embed = new Discord.EmbedBuilder()
             .setTitle("Personalise sua embed de boas vindas:")
             .setColor("#97989a")
-            .setDescription(`> - Selecione um botão correspondente ao campo que você deseja alterar:\n\n## Lembrando, você pode utilizar os seguinte parâmetros:
-            > **{userMention}** \`\`\`Forneça esse valor caso queira mencionar o membro que acabou de entrar.\`\`\`
-            > **{userName}** \`\`\`Forneça esse valor caso queira que o Nickname do membro seja exibido.\`\`\`
-            > **{userId}** \`\`\`Forneça esse valor caso queira que o Id do membro seja exibido.\`\`\`
-            > **{userCount}** \`\`\`Forneça esse valor caso queira que a quantidade de membros seja exibida.\`\`\`
-            `);
+            .setDescription(`> - Aperte nos botões abaixo para abrir o painel de edição:\n - o **\`botão principal\`** contem a estilização do Título, Descrição e a Cor da embed, já o **\`botão adicional\`** é a estilização da Imagem e Thumbnail\n### 📌 • Lembrando, você pode utilizar as seguintes alias:`)
+            .setFields({
+                name:"> {userMention}", value:"```Forneça esse valor caso queira mencionar o membro que acabou de entrar.```", inline: true
+            }, {
+                name:"> {userName}", value:"```Forneça esse valor caso queira que o Nickname do membro seja exibido.```", inline: true
+            }, {
+                name:"> {userId}", value:"```Forneça esse valor caso queira que o Id do membro seja exibido.```", inline: true
+            }, {
+                name:"> {userCount}", value:"```Forneça esse valor caso queira que a quantidade de membros seja exibida.```", inline: true
+            })
 
         message.channel.send({ embeds: [embed], components: [buttons] });
     }
