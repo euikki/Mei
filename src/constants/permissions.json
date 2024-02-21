@@ -1,5 +1,5 @@
 {
-    "Perms": {
+    "permissions": {
         "Administrator": "Administrador",
         "CreateInstantInvite": "Criar convite instantâneo",
         "KickMembers": "Expulsar membros",
