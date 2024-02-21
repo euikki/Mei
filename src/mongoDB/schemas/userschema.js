@@ -23,8 +23,8 @@ vipExpires: { type: Date, default: null },
 //-------- Economia -------------------------
 
 bolso: { type: Number, default: 0 },
-cave: { type: Number, default: 0 },
-cometa_codigos: { type: [String], default: [] },
+mushroom: { type: Number, default: 0 },
+codes: { type: [String], default: [] },
 daily_tempo: { type: Number, default: 0 },
 
 });
