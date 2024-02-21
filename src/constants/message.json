@@ -1,21 +1,21 @@
 {
     "DB": {
-        "VIAJANTE": "> - {e:db} **<name>**, acabei de dar uma olhada aqui e vi que você não está registrado no meu **banco de dados**, se registre utilizando **``<command>``** para **liberar** meus comandos.",
+        "AUTHOR": "> - {e:db} **<name>**, acabei de dar uma olhada aqui e vi que você não está registrado no meu **banco de dados**, se registre utilizando **``<command>``** para **liberar** meus comandos.",
         
-        "MENCIONEI": "> - {e:db} **<name>**, pardonne, mas o viajante mencionado não faz parte do meu **banco de dados**, então não poderei realizar essa operação."
+        "USER": "> - {e:db} **<name>**, pardonne, mas o viajante mencionado não faz parte do meu **banco de dados**, então não poderei realizar essa operação."
     },
 
     "BL": {
-        "VIAJANTE": "{e:erro} <name>, você está **banido(a) ao meu acesso**!\n> - **Motivo do Banimento:** <motivo>\n> - **Data do Banimento:** <data>\n> - **Expira:** <expira>",
+        "AUTHOR": "{e:erro} <name>, você está **banido(a) ao meu acesso**!\n> - **Motivo do Banimento:** <motivo>\n> - **Data do Banimento:** <data>\n> - **Expira:** <expira>",
     
-        "MENCIONEI": "{e:erro} O(A) viajante **<name>** está **banido(a) ao meu acesso**!\n> - **Motivo do Banimento:** <motivo>\n> - **Data do Banimento:** <data>\n> - **Expira:** <expira>"
+        "USER": "{e:erro} O(A) viajante **<name>** está **banido(a) ao meu acesso**!\n> - **Motivo do Banimento:** <motivo>\n> - **Data do Banimento:** <data>\n> - **Expira:** <expira>"
     },
     
-    "TENHOP": {
-        "VIAJANTE": "{e:erro} <name>, você não possui permissões suficientes! para a execução desse comando é preciso das seguintes **permissões**\n> - **`(<TENHOP>)`**",
+    "PERMISSION": {
+        "AUTHOR": "{e:erro} <name>, você não possui permissões suficientes! para a execução desse comando é preciso das seguintes **permissões**\n> - **`(<PERMISSION>)`**",
 
-        "MIM": "{e:erro} <name>, para eu poder concluir a execução desse comando eu preciso das seguintes **permissões**\n> ⎯ **`(<TENHOP>)`**"
+        "CLIENT": "{e:erro} <name>, para eu poder concluir a execução desse comando eu preciso das seguintes **permissões**\n> ⎯ **`(<PERMISSION>)`**"
     },
 
-    "TEMPO": "> - {e:time} <name> **deixa eu respirar!** espere por **<t:<cooldown>:R>** para executar outro comando."
+    "TEMPO": "> {e:time} <name> **eita bixo**, espere um pouco para usar outro comando: **<t:<cooldown>:R>**"
 }

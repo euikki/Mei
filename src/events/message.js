@@ -1,6 +1,6 @@
 const Discord = require('discord.js')
 const MESSAGE = require('../constants/message.json');
-const { Perms } = require('../constants/perms.json');
+const { permissions } = require('../constants/permissions.json');
 
 const { FormatEmoji } = require('../functions/FormatEmoji');
 const { userDB } = require('../mongoDB/index');
@@ -54,7 +54,7 @@ module["exports"] = {
         const mentionedDB = await userDB.findById(mentioned?.id);
         const mentionArgs = !!mentions ? true : !!mentioned ? true : false;
 
-        const messageBl = _userDB?.blacklist["impostor"] ? MESSAGE.BL.VIAJANTE : MESSAGE.BL.MENCIONEI;
+        const messageBl = _userDB?.blacklist["impostor"] ? MESSAGE.BL.AUTHOR : MESSAGE.BL.USER;
 
         const isDeveloper = client.developers.includes(message.author.id); // Black list
         
@@ -83,11 +83,10 @@ module["exports"] = {
         const authorDB = await userDB.findById(message.author.id);
 
         if (!authorDB) {
-            const registrarr = MESSAGE.DB.VIAJANTE
+           const registrarr = MESSAGE.DB.AUTHOR
             .replace(/<name>/g, message.author.username)
             .replace(/<command>/g, `${client.prefix}registrar`);
-    
-        return message.reply(client.FormatEmoji(registrarr));
+           return message.reply(client.FormatEmoji(registrarr));
         }
 
         if (message.mentions.users.size > 0) {
@@ -95,19 +94,19 @@ module["exports"] = {
             const mentionedDB = await userDB.findById(mentioned.id);
 
             if (!mentionedDB) {
-                const mencao = MESSAGE.DB.MENCIONEI.replace(/<name>/g, message.author);
+                const mencao = MESSAGE.DB.USER.replace(/<name>/g, message.author);
                 return message.reply(client.FormatEmoji(mencao));
             }
         }
 
-const TranslatePerms = (input) => {
-    return input.map(permission => `${Perms[permission]} ` || input).join(', ');
+const PermissionTranslator = (input) => {
+    return input.map(permission => `${permissions[permission]} ` || input).join(', ');
 };
-        if (command.ViajantePerm && !message.member.permissions.has(command.ViajantePerm || []))
-        return message.channel.send(FormatEmoji(MESSAGE.TENHOP.VIAJANTE.replace(/<name>|<TENHOP>/g, (matched) => { return matched === "<name>" ? message.author : TranslatePerms(command.ViajantePerm) })));
+        if (command.UserPermission && !message.member.permissions.has(command.UserPermission || []))
+        return message.channel.send(FormatEmoji(MESSAGE.PERMISSION.AUTHOR.replace(/<name>|<PERMISSION>/g, (matched) => { return matched === "<name>" ? message.author : PermissionTranslator(command.UserPermission) })));
 
-        if (command.MeimiPerm && !message.guild.members.cache.get(client.user.id).permissions.has(command.MeimiPerm || []))
-        return message.channel.send(FormatEmoji(MESSAGE.TENHOP.MIM.replace(/<name>|<TENHOP>/g, (matched) => { return matched === "<name>" ? message.author : TranslatePerms(command.MeimiPerm) })));
+        if (command.ClientPermission && !message.guild.members.cache.get(client.user.id).permissions.has(command.ClientPermission || []))
+        return message.channel.send(FormatEmoji(MESSAGE.PERMISSION.CLIENT.replace(/<name>|<PERMISSION>/g, (matched) => { return matched === "<name>" ? message.author : PermissionTranslator(command.ClientPermission) })));
 
 
 
