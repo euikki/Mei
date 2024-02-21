@@ -2,109 +2,66 @@ const Discord = require("discord.js");
 const server = require("../../mongoDB/schemas/guildschema");
 
 module.exports = [
-    {
-      id: 'title',
+  {
+      id: 'open-primary',
       authorOnly: true,
-      run: async (client, interaction) => {
+  run: async (client, interaction) => {
 
       const modal = new Discord.ModalBuilder()
-        .setCustomId('title')
-        .setTitle('📌・Qual vai ser o título da embed?');
+        .setCustomId('edit-values')
+        .setTitle('Forneça os valores da embed.');
     
       let titleContent = new Discord.ActionRowBuilder().addComponents(
-      new Discord.TextInputBuilder()
-        .setCustomId('content')
-        .setLabel('Essa opção é opcional.')
-        .setStyle(Discord.TextInputStyle.Short)
-     )
-
-     modal.addComponents(titleContent)
-     await interaction.showModal(modal)
-      }
-    }, /////////// Description
-    {
-      id: 'description',
-      authorOnly: true,
-      run: async (client, interaction) => {
-
-      const modal = new Discord.ModalBuilder()
-        .setCustomId('description')
-        .setTitle('Modal');
-    
-      let descriptionContent = new Discord.ActionRowBuilder().addComponents(
-      new Discord.TextInputBuilder()
-        .setCustomId('content')
-        .setLabel('﹝📝﹞・Qual vai ser a descrição da embed?')
-        .setRequired(true)
-        .setStyle(Discord.TextInputStyle.Paragraph)
-     )
-
-     modal.addComponents(descriptionContent)
-     await interaction.showModal(modal)
-      }
-    }, /////////// Thumbanail
-    {
-        id: 'thumbnail',
-        authorOnly: true,
-        run: async (client, interaction) => {
-
-      const modal = new Discord.ModalBuilder()
-          .setCustomId('description')
-          .setTitle('Modal');
-      
-      let thumbnailContent = new Discord.ActionRowBuilder().addComponents(
-        new Discord.TextInputBuilder()
-          .setCustomId('content')
-          .setLabel('﹝🔗﹞・Forneça o link da thumbnail abaixo:')
-          .setStyle(Discord.TextInputStyle.Paragraph)
-       )
-  
-       modal.addComponents(thumbnailContent)
-       await interaction.showModal(modal)
-        }
-      }, /////////// Image
-      {
-        id: 'image',
-        authorOnly: true,
-        run: async (client, interaction) => {
-      
-      const modal = new Discord.ModalBuilder()
-          .setCustomId("image")
-          .setTitle("Modal");
-
-      let imageContent = new Discord.ActionRowBuilder().addComponents(
-         new Discord.TextInputBuilder()
-         .setCustomId('content')
-         .setLabel("﹝🔗﹞・Forneça o link da imagem abaixo:")
-         .setStyle(Discord.TextInputStyle.Paragraph)
+       new Discord.TextInputBuilder()
+         .setCustomId('content-title')
+         .setLabel('Título da embed.')
+         .setStyle(Discord.TextInputStyle.Short)
+         .setMaxLength(80)
       )
       
-      modal.addComponents(imageContent);
-      await interaction.showModal(modal)
-        
-        }
-      }, /////////// Color
-      {
-        id: 'color',
-        authorOnly: true,
-        run: async (client, interaction) => {
-
-      const modal = new Discord.ModalBuilder()
-        .setCustomId('title')
-        .setTitle('Modal');
+      let descriptionContent = new Discord.ActionRowBuilder().addComponents(
+        new Discord.TextInputBuilder()
+        .setCustomId('content-description')
+        .setLabel('Descrição da Embed.')
+        .setStyle(Discord.TextInputStyle.Paragraph),
+      ) 
       
       let colorContent = new Discord.ActionRowBuilder().addComponents(
         new Discord.TextInputBuilder()
-        .setCustomId('content')
-        .setLabel('﹝🎨﹞・Informe o hexa para adicionarmos a cor na embed:')
+        .setCustomId('content-color')
+        .setLabel('Cor da embed em Hexa.')
         .setStyle(Discord.TextInputStyle.Short)
-       )
-  
-       modal.addComponents(colorContent)
-       await interaction.showModal(modal)
+        .setMaxLength(7)
+      )
+   
+     modal.addComponents(titleContent, descriptionContent, colorContent)
+     await interaction.showModal(modal);
+    
+  }
+}, {
+  id: 'open-secondary',
+  authorOnly: true,
+    run: async (client, interaction) => {
+
+      const modal = new Discord.ModalBuilder()
+        .setCustomId('edit-values')
+        .setTitle('Forneça os valores da embed.');
         
-      
-      }
-      }
-  ];
-  
+        let thumbnailContent = new Discord.ActionRowBuilder().addComponents(
+        new Discord.TextInputBuilder()
+        .setCustomId('content-thumbnail')
+        .setLabel('Link da Thumbnail.')
+        .setStyle(Discord.TextInputStyle.Short),
+       )
+
+       let imageContent = new Discord.ActionRowBuilder().addComponents(
+        new Discord.TextInputBuilder()
+        .setCustomId('content-image')
+        .setLabel('Link da imagem.')
+        .setStyle(Discord.TextInputStyle.Short),
+       )
+    
+    modal.addComponents(thumbnailContent, imageContent)
+    await interaction.showModal(modal);
+  }
+}]
