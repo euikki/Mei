@@ -1,10 +1,10 @@
-const { Client, Collection } = require("discord.js");
-const Table = require("cli-table3");
-const fs = require("fs");
-const colors = require("colors");
-const { FormatEmoji } = require("../functions/FormatEmoji/index");
+const { Client, Collection } = require('discord.js');
+const Table = require('cli-table3');
+const fs = require('fs');
+const colorize = require('strcolorize')
+const { FormatEmoji } = require('../functions/FormatEmoji/index');
 
-module["exports"] = class Meimi extends Client {
+module["exports"] = class Mei extends Client {
   constructor(options) {
     super({
       intents: options.intents,
@@ -28,7 +28,7 @@ module["exports"] = class Meimi extends Client {
           
       await super.login(this.token);
       console.log(
-        `${this.user.username.magenta.bold} foi conectada com sucesso.`
+        colorize(`[${this.user.username}](magenta bold) está conectada!`)
       );
     } catch (error) {
       console.error(`Ocorreu um erro durante a conexão com o cliente:`, error);
@@ -36,7 +36,12 @@ module["exports"] = class Meimi extends Client {
   }
 
   #HandlerCommands() {
-    const table = new Table({ head: [colors.cyan("comandos"), colors.blue("status")] });
+    const table = new Table({ 
+      head: [
+        colorize('[comandos](cyan bold)'),
+        colorize('[status](blue)')
+      ]
+    });
 
     fs.readdirSync("./src/commands").forEach((directory) => {
       const commandFiles = fs
@@ -49,7 +54,10 @@ module["exports"] = class Meimi extends Client {
 
         this.commands.set(command.name, command);
 
-        table.push([command.name, "sucesso"]);
+        table.push([
+          command.name,
+          colorize("[sucesso](green)")
+        ]);
       });
     });
 
@@ -57,7 +65,12 @@ module["exports"] = class Meimi extends Client {
   }
 
   #HandlerEvents() {
-    const table = new Table({ head: [colors.cyan("eventos"), colors.blue("status")] });
+    const table = new Table({ 
+      head: [
+        colorize('[evetos](cyan bold)', false),
+        colorize('[status](blue)', false)
+      ]
+    });
 
     fs.readdirSync("./src/events").forEach((files) => {
       const events = require(`../events/${files}`);
@@ -72,14 +85,22 @@ module["exports"] = class Meimi extends Client {
           events.run(this, ...args);
         });
       }
-      table.push([events.type.white, "sucesso".white]);
+      table.push([
+        events.type,
+        colorize("[sucesso](green)")
+      ]);
     });
 
     console.log(table.toString());
   }
 
   #HandlerComponents() {
-    const table = new Table({ head: [colors.cyan('componentes'), colors.blue('status')] });
+    const table = new Table({ 
+      head: [
+      colorize('[componentes](cyan bold)', false),
+      colorize('[status](blue)', false)
+    ]
+  });
 
     fs.readdirSync('./src/components').forEach(directory => {
         const componentFile = fs.readdirSync(`./src/components/${directory}/`).filter(cmpFile => cmpFile.endsWith(".js"));
@@ -92,11 +113,13 @@ module["exports"] = class Meimi extends Client {
 
             components.forEach(component => {
             this.components.set(component.id, component);
-            table.push([component.id.white, 'sucesso'.white])
+            table.push([
+              component.id,
+              colorize("[sucesso](green)")
+            ])
             });
         });
     });
-
     console.log(table.toString())
   }
 };
