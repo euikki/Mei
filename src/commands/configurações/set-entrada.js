@@ -9,7 +9,7 @@ module.exports = {
     run: async(client, message, args) => {
 
         const action = args[0];
-        if(!action || (action !== 'ativar' && action !== 'desativar')) return message.reply(client.FormatEmoji(`{e:erro} Utilize o comando da seguinte forma: \`${client.prefix}set-entrada <ativar>||<desativar> <#canal>\`\n> - se você definir o escopo como <desativar> não é preciso informar o canal. `));
+        if(!action || (action !== 'ativar' && action !== 'desativar')) return message.reply(client.FormatEmoji(`{e:erro} Utilize o comando da seguinte forma: \`${client.prefix}set-entrada ativar <#canal> || desativar\` `));
 
         if(action === 'desativar') {
             await updateChannel(message.guild.id, false, null);
@@ -20,7 +20,7 @@ module.exports = {
         if(!channel) return message.reply(client.FormatEmoji("> {e:erro} Você deve fornecer o canal onde a mensagem será enviada."));
 
         await updateChannel(message.guild.id, true, channel.id);
-        message.channel.send(`Canal de entrada definido para ${channel}`);
+        message.channel.send(client.FormatEmoji(`> {e:correto} O canal ${channel} foi definido para receber os logs de entradas!\n - Você pode** personalizar a embed** de boas-vindas utilizando o comando: **\`${client.prefix}stm\`**`));
     }
 }
 
