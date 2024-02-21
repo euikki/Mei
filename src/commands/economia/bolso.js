@@ -21,7 +21,7 @@ module.exports = {
       }
 
       const fragmentos = user.bolso;
-      const cogumelos = user.cave;
+      const cogumelos = user.mushroom;
   
       const Mbolso = author ? `> - Você possui **({dailyf}) ${fragmentos.toLocaleString()} Fragmentos** e **({dailyc}) ${cogumelos.toLocaleString()} Cogumelos** em seu bolso.` : `> - ${message.author}, O viajante **\`${username}\`** possui uma quantia de **({dailyf}) ${fragmentos.toLocaleString()} Fragmentos** e **({dailyc}) ${cogumelos.toLocaleString()} Cogumelos** em seu bolso.`;
       return message.reply({ content: client.FormatEmoji(Mbolso)});

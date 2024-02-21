@@ -20,21 +20,21 @@ module.exports = {
       const horas = Math.floor(time / 3600);
       const minutos = Math.floor((time % 3600) / 60);
       
-      return message.reply({ content: client.FormatEmoji(`{e:lua} \`${message.author.username}\` você só poderá sair para **coletar** novamente em **${horas} horas e ${minutos} minutos**.`) });
+      return message.reply({ content: client.FormatEmoji(`> {e:lua} \`${message.author.username}\`, sua **próxima coleta** só poderá ser feita novamente em: **${horas} horas e ${minutos} minutos**.`) });
     }
     
     
     
     const [item, emoji] = BloodMoon ? ["Cogumelos", "{dailyc}"] : ["Fragmentos", "{dailyf}"];
     const collect = Math.ceil(Math.random() * (BloodMoon ? 1200 : (vip ? 4300 : 2300)));
-    user[BloodMoon ? 'cave' : 'bolso'] += collect;
+    user[BloodMoon ? 'mushroom' : 'bolso'] += collect;
 
-    let AlternativeMessage = `> - {e:star} ${message.author} ${BloodMoon ? "Hoje é dia de **lua de sangue**, em sua coleta você obteve" : "Você fez a sua coleta e conseguiu"} **(${emoji}) ${collect.toLocaleString()} ${item}!!**`;
+    let AlternativeMessage = `> {e:star} ${message.author} ${BloodMoon ? "Hoje é **lua de sangue**, seus **fragmentos** se transformaram em" : "Você fez a sua coleta e conseguiu"} **(${emoji}) ${collect.toLocaleString()} ${item}!!**`;
 
     if (vip) {
       const Mushroom = Math.ceil(Math.random() * 1200);
       const fragment = Math.ceil(Math.random() * 4300);
-      user.cave += Mushroom;
+      user.mushroom += Mushroom;
       user.bolso += fragment;
       AlternativeMessage += `> - {e:portal} Em sua coleta você obteve **({dailyf}) ${fragment.toLocaleString()} Fragmentos** e um bônus de **({dailyc}) ${Mushroom.toLocaleString()} Cogumelos**!`;
     }
