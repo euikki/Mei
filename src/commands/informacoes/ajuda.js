@@ -43,7 +43,7 @@ module.exports = {
 
         const Menu = SelectOptions('Início', 'Selecione está opção para voltar para o painel inicial.', 'painel', '🏠');
         const Infos = SelectOptions('Informações', 'Selecione essa categoria para ver os comandos de informações', 'informations', '❗');
-        const Developers = SelectOptions('Desenvolvedores', 'Selecione essa categoria para ver os comandos de desenvolvedores', 'developers', '📌');
+        const Developers = SelectOptions('Desenvolvedor', 'Selecione essa categoria para ver os comandos de desenvolvedor', 'developers', '📌');
         const Members = SelectOptions('Viajantes', 'Selecione essa categoria para ver os comandos de viajantes', 'members', '🔮');
         const Economy = SelectOptions('Economia', 'Selecione essa categoria para ver os comandos de economia', 'economy', '💰');
         const Special = SelectOptions('Especiais', 'Selecione essa categoria para ver os comandos especiais', 'special', '🌹');
