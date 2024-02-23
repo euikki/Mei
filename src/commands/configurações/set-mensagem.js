@@ -15,7 +15,8 @@ module.exports = {
 
         const buttons = MButton([
             { label: 'Editar conteúdo Principal', customId: `[open-primary, ${message.author.id}]`, style: 'Secondary' },
-            { label: 'Editar conteúdo Adcional', customId: `[open-secondary, ${message.author.id}]`, style: 'Secondary' }
+            { label: 'Editar conteúdo Adcional', customId: `[open-secondary, ${message.author.id}]`, style: 'Secondary' },
+            { label: 'Ver a embed', customId: `[preview, ${message.author.id}]`, style: 'Success' },
           ]);          
 
 
