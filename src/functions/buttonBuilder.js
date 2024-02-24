@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-function MButton(buttons) {
+function MeiButton(buttons) {
   const row = new Discord.ActionRowBuilder();
 
   for (const { label, customId, style, url, emoji } of buttons) {
@@ -30,4 +30,4 @@ function MButton(buttons) {
   return row;
 }
 
-module.exports = MButton;
+module.exports = MeiButton;

@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const User = require('../../mongoDB/schemas/userschema');
-const Mbutton = require("../../functions/buttonBuilder")
+const MeiButton = require("../../functions/buttonBuilder")
 
 module.exports = {
   name: "registrar",
@@ -15,7 +15,7 @@ run: async (client, message, args) => {
   }
 
 
-const button = Mbutton([
+const button = MeiButton([
   {label: "Ver presente", emoji: client.FormatEmoji("{e:gift}"), customId: `[gift, ${message.author.id}]`, style: "Secondary"}
 ])
 

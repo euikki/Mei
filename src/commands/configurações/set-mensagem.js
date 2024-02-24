@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const server = require("../../mongoDB/schemas/guildschema");
-const MButton = require('../../functions/buttonBuilder');
+const MeiButton = require('../../functions/buttonBuilder');
 
 module.exports = {
     name: "set-mensagem",
@@ -13,7 +13,7 @@ module.exports = {
             return message.reply("Você precisa ativar o sistema de boas-vindas antes de poder personalizar a mensagem!");
         }
 
-        const buttons = MButton([
+        const buttons = MeiButton([
             { label: 'Editar conteúdo Principal', customId: `[open-primary, ${message.author.id}]`, style: 'Secondary' },
             { label: 'Editar conteúdo Adcional', customId: `[open-secondary, ${message.author.id}]`, style: 'Secondary' },
             { label: 'Ver a embed', customId: `[preview, ${message.author.id}]`, style: 'Success' },
