@@ -7,7 +7,6 @@
     "discord.js": "^14.14.1",
     "dotenv": "^16.3.1",
     "fs": "^0.0.1-security",
-    "kandaraku": "^1.6.5",
     "moment-timezone": "^0.5.43",
     "mongoose": "^8.0.3",
     "path": "^0.12.7",
