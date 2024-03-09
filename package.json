@@ -9,6 +9,7 @@
     "fs": "^0.0.1-security",
     "moment-timezone": "^0.5.43",
     "mongoose": "^8.0.3",
+    "number-abbreviate": "^2.0.0",
     "path": "^0.12.7",
     "strcolorize": "^1.0.3"
   },
