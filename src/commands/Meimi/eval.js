@@ -6,7 +6,7 @@ module.exports = {
     name: 'eval',
     aliases: ["e", "ev"],
     DevOnly: true,
-    description: "Executar códigos",
+    description: "☕ execute códigos através do discord",
     category: "developers",
 
     run: async (client, message, args) => {

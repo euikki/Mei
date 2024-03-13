@@ -15,7 +15,7 @@ const SelectOptions = (label, description, value, emoji) => {
 module.exports = {
     name: "ajuda",
     aliases: ["help"],
-    description: "bah",
+    description: "📌 Veja todos os comandos da Mei e informações fundamentais.",
     category: "informations",
     run: async(client, message, args) => {
 
