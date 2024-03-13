@@ -20,7 +20,7 @@ module.exports = {
         author = true;
       }
 
-      const fragmentos = user.bolso;
+      const fragmentos = user.fragments;
       const cogumelos = user.mushroom;
   
       const Mbolso = author ? `> - Você possui **({dailyf}) ${fragmentos.toLocaleString()} Fragmentos** e **({dailyc}) ${cogumelos.toLocaleString()} Cogumelos** em seu bolso.` : `> - ${message.author}, O viajante **\`${username}\`** possui uma quantia de **({dailyf}) ${fragmentos.toLocaleString()} Fragmentos** e **({dailyc}) ${cogumelos.toLocaleString()} Cogumelos** em seu bolso.`;

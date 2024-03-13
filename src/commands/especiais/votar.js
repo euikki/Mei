@@ -39,7 +39,7 @@ module.exports = {
         } else {
    
             User.votes += 1;
-            User.bolso += 1500;
+            User.fragments += 1500;
             User.time_vote = Date.now();
             await User.save()
 

@@ -43,7 +43,7 @@ module.exports = {
     
     ctx.font = '30px Arial'; // User Fragments
     ctx.fillStyle = '#ffffff';
-    ctx.fillText(`${userDB.bolso.toLocaleString()}`, 320, 434);
+    ctx.fillText(`${userDB.fragments.toLocaleString()}`, 320, 434);
     
     ctx.font = '30px Arial'; // User Mushrooms
     ctx.fillStyle = '#ffffff';

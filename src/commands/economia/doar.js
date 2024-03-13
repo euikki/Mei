@@ -17,7 +17,7 @@ module.exports = {
     
     const user = await User.findOne({ _id: message.author.id });
     
-    if (!user || user.bolso < fragmentos) return message.reply(client.FormatEmoji('> - {e:erro} Você não tem tudo isso em seu bolso!'));
+    if (!user || user.fragments < fragmentos) return message.reply(client.FormatEmoji('> - {e:erro} Você não tem tudo isso em seu bolso!'));
 
     const button = new Discord.ActionRowBuilder().addComponents(
       new Discord.ButtonBuilder().setCustomId("aceitar").setStyle(Discord.ButtonStyle.Success).setEmoji(client.FormatEmoji("{correto}"))
@@ -32,12 +32,12 @@ module.exports = {
           return i.reply({ content: `> - Desculpe, apenas ${viajante.user} pode apertar no botão.`, ephemeral: true });
         }
 
-        user.bolso -= fragmentos;
+        user.fragments -= fragmentos;
         await user.save();
 
         const mencionado = await User.findOne({ _id: viajante.user.id });
         if (mencionado) {
-          mencionado.bolso += fragmentos;
+          mencionado.fragments += fragmentos;
           await mencionado.save();
           i.update({ content: client.FormatEmoji(`> - {e:frag} Doação concluída, a quantia de **({dailyf}) ${fragmentos.toLocaleString()} fragmentos**  foi adicionado ao bolso de ${viajante.user}.`), components: [] });
         }

@@ -15,8 +15,9 @@ run: async (client, message, args) => {
   }
 
 
-const button = MeiButton([
-  {label: "Ver presente", emoji: client.FormatEmoji("{gift}"), customId: `[gift, ${message.author.id}]`, style: "Secondary"}
+
+  const button = MeiButton([
+    {label: "Ver presente", emoji: client.FormatEmoji("{gift}"), customId: `[gift, ${message.author.id}]`, style: "Secondary"}
 ])
 
 await message.reply({ content: client.FormatEmoji(`> {e:lista} \`${message.author.username}\` Parabéns por se registrar! com isso você acaba de ganhar **2 presentes**.\n > - Aperte no botão abaixo para visualizar seus presentes.`), components: [button] });

@@ -11,12 +11,12 @@ module.exports = {
   run: async (client, message, args) => {
     
     const user = await User.findOne({ _id: message.author.id });
-    const { daily_tempo } = user;
+    const { daily_time } = user;
     const BloodMoon = [0, 5].includes(moment().tz('America/Sao_Paulo').day());
    
     
-    if (daily_tempo && (Date.now() - daily_tempo < 86400000)) {  
-      const time = Math.floor((daily_tempo + 86400000 - Date.now()) / 1000);
+    if (daily_time && (Date.now() - daily_time < 86400000)) {  
+      const time = Math.floor((daily_time + 86400000 - Date.now()) / 1000);
       const horas = Math.floor(time / 3600);
       const minutos = Math.floor((time % 3600) / 60);
       
@@ -25,13 +25,13 @@ module.exports = {
     
     const [item, emoji] = BloodMoon ? ["Cogumelos", "{dailyc}"] : ["Fragmentos", "{dailyf}"];
     const collect = Math.ceil(Math.random() * (BloodMoon ? 1200 : 2300));
-    user[BloodMoon ? 'mushroom' : 'bolso'] += collect;
+    user[BloodMoon ? 'mushroom' : 'fragments'] += collect;
 
     let AlternativeMessage = `> {e:star} ${message.author} ${BloodMoon ? "Hoje é **lua de sangue**, seus **fragmentos** se transformaram em" : "Você fez a sua coleta e conseguiu"} **(${emoji}) ${collect.toLocaleString()} ${item}!!**`;
 
     message.reply({ content: client.FormatEmoji(AlternativeMessage) });
 
-    user.daily_tempo = Date.now();
+    user.daily_time = Date.now();
     await user.save();
   }
 };

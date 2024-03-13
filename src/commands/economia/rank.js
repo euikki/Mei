@@ -8,7 +8,7 @@ module.exports = {
     category: "economy",
 
     run: async (client, message, args) => {
-        const fragments = await User.find({ bolso: { $gt: 0 } }).sort({ bolso: -1 }).limit(10);
+        const fragments = await User.find({ fragments: { $gt: 0 } }).sort({ fragments: -1 }).limit(10);
 
         if (fragments.length === 0) {
             return message.channel.send(`\`🥀\` - Parece que não tem ninguém no ranking...\n> - mude isso usando **\`${client.prefix}coletar\`**`);
@@ -18,7 +18,7 @@ module.exports = {
         for (let i = 0; i < fragments.length; i++) {
             const viajante = fragments[i];
             const user = await client.users.fetch(viajante._id);
-            finish.push(`> \`( ${i + 1}º )\` - **${user.username}** - \`${viajante.bolso.toLocaleString()}\``);
+            finish.push(`> \`( ${i + 1}º )\` - **${user.username}** - \`${viajante.fragments.toLocaleString()}\``);
         }
 
         const position = finish.findIndex(entry => entry.includes(message.author.username)) + 1;
