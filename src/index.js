@@ -8,5 +8,9 @@ const client = new Mei({
   token: process.env.token,
 });
 
+const topgg = process.env.topgg
+const { AutoPoster } = require('topgg-autoposter')
+AutoPoster(topgg, client)
+
 client.setup();
 require("./mongoDB");
