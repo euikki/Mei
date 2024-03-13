@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@top-gg/sdk": "^3.1.6",
     "axios": "^1.6.7",
     "canvas": "^2.11.2",
     "child_process": "^1.0.2",
@@ -11,7 +12,8 @@
     "mongoose": "^8.0.3",
     "number-abbreviate": "^2.0.0",
     "path": "^0.12.7",
-    "strcolorize": "^1.0.3"
+    "strcolorize": "^1.0.3",
+    "topgg-autoposter": "^2.0.2"
   },
   "name": "daijin",
   "version": "1.0.0",
