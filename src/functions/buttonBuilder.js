@@ -15,18 +15,18 @@ function MeiButton(buttons) {
       Danger || 4
       Link || 5 */
 
-  if (emoji) {
-   button.setEmoji(emoji);
-}
+      if (emoji) {
+        button.setEmoji(emoji);
+      }
 
-  if (url) {
-   button.setURL(url);
-} else {
-   button.setCustomId(customId);
-}
-row.addComponents(button);
-}
-  return row;
+      if (url) {
+        button.setURL(url);
+      } else {
+        button.setCustomId(customId);
+      }
+        row.addComponents(button);
+      }
+    return row;
 }
 
 module.exports = MeiButton;
