@@ -24,9 +24,8 @@ function MeiButton(buttons) {
 } else {
    button.setCustomId(customId);
 }
-
-    row.addComponents(button);
-  }
+row.addComponents(button);
+}
   return row;
 }
 
