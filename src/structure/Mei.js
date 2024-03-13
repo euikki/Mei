@@ -28,7 +28,7 @@ module["exports"] = class Mei extends Client {
           
       await super.login(this.token);
       console.log(
-        colorize(`[${this.user.username}](magenta bold) está conectada!`)
+        colorize(`[${this.user.username}](magenta bold) atravessou o portal🌌🪐`)
       );
     } catch (error) {
       console.error(`Ocorreu um erro durante a conexão com o cliente:`, error);
